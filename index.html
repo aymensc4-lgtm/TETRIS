@@ -413,7 +413,7 @@ function render(){ draw(); if(nextPiece) drawNext(); }
 function spawn(){ piece=nextPiece||mkPiece(); nextPiece=mkPiece(); if(!ok(piece)) stop(); }
 function hardDrop(){ const d=ghostRow()-piece.y; piece.y+=d; score+=d*2; place(); }
 function place(){ lockPiece(); sweepLines(); spawn(); ui(); }
-function softDrop(){ if(ok(piece,0,1)){piece.y++;score++;ui();}else place(); dropT=0; }
+function softDrop(){ if(ok(piece,0,1)){piece.y++;ui();}else place(); dropT=0; }
 function rot(){ const r=rotate(piece.shape); for(const k of [0,-1,1,-2,2]) if(ok(piece,k,0,r)){piece.shape=r;piece.x+=k;return;} }
 
 // ── Loop ──
